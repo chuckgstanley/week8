@@ -11,7 +11,7 @@ div {
 }
 
 .button-holder {
-	width: 160px;
+	width: 180px;
 	float: left;
 		
 }
@@ -23,9 +23,18 @@ div {
 	border-color: black;
 	border-style: solid;
 	float: left;
-	text-align: center;
+	text-align: center
+	margin: 4px;
+	cursor: pointer;
 }
 
+.disabled{
+	cursor: default;
+	border-color: gray;
+	color: gray;
+	background-color: black;
+		
+}
 .image-holder {
 	width: 600px;
 	height: 345px;
