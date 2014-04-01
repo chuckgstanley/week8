@@ -16,19 +16,27 @@ function setNav() {
 
 	 /*console.log("setNav");
 	*/
-	$(".button.next").on("click", function() {
-		console.log("click!!!");
+	$(".button").on("click", function() {
+		
+		var isNext = $(this).hasClass("next");
+		console.log(isNext);
+		
+		if (isNext == true && index != (images.length-1)) {
 		index = index + 1;
-		
-		updateImage();
-	});	
-	
-	$(".button.prev").on("click", function() {
-		console.log("click!!!!");
-		
+	}	else if (isNext == false && index > 0) {
 		index = index - 1;
+	}
+	
+	if (index == 0) {
+		$(".button.prev").addClass("disabled");
+	} else if (index == (images.length-1)) {
+		$(".button.next").addClass("disabled");
+	} else {
+		$(".button").removeClass("disabled");
+	}
 		updateImage();
-	});
+	
+	}); /*End setNav function*/
 }
 
 /* change the image her */
@@ -47,6 +55,8 @@ $(document).ready(function() {
 	$(".image-holder").html(
 		"<img src='images/"+images[index]+"'/>"
 	);
+	
+	$(".button.prev").addClass("disabled");
 	
 		setNav();
 	
